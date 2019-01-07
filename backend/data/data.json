@@ -1,0 +1,46 @@
+{
+  "customers": [
+    {
+      "id": 1,
+      "firstname": "Joe",
+      "lastname": "Thomas",
+      "age": 36
+    },
+    {
+      "id": 2,
+      "firstname": "Peter",
+      "lastname": "Smith",
+      "age": 18
+    },
+    {
+      "id": 3,
+      "firstname": "Lauren",
+      "lastname": "Taylor",
+      "age": 31
+    },
+    {
+      "firstname": "Mary",
+      "lastname": "Taylor",
+      "age": 33,
+      "id": 4
+    },
+    {
+      "id": 5,
+      "firstname": "David",
+      "lastname": "Moore",
+      "age": 25
+    },
+    {
+      "id": 6,
+      "firstname": "Holly",
+      "lastname": "Davis",
+      "age": 27
+    },
+    {
+      "id": 7,
+      "firstname": "Michael",
+      "lastname": "Brown",
+      "age": 45
+    }
+  ]
+}
