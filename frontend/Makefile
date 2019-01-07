@@ -10,7 +10,7 @@ serve-open:
 	ng serve --open
 
 serve-network:
-	ng serve --host 172.28.2.50 --port 4200 --live-reload true
+	ng serve --host 192.168.1.1 --port 4200 --live-reload true
 
 build-prod:
 	ng build --prod --output-path=${OUTPUT_PATH} --base-href=${BASE_HREF}
