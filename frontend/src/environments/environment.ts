@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  API_URL: 'http://172.28.2.50:3000/customers'
+  //API_URL: 'http://172.28.2.50:3000/customers'
+  API_URL: 'http://172.28.2.50:5000/customers'
 };
 
 /*

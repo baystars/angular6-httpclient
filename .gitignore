@@ -6,6 +6,9 @@
 *~
 *.orig
 *.local
+.python-version
+__pycache__
+data.db*
 
 # compiled output
 dist

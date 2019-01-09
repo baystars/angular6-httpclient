@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Customer } from '../customer';
 import { CustomerService } from '../customer.service';
 
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 @Component({
@@ -19,6 +19,7 @@ export class CustomerDetailsComponent implements OnInit {
   constructor(
     private customerService: CustomerService,
     private route: ActivatedRoute,
+    private router: Router,
     private location: Location
   ) {}
 
@@ -37,7 +38,8 @@ export class CustomerDetailsComponent implements OnInit {
   delete(): void {
     this.submitted = true;
     this.customerService.deleteCustomer(this.customer.id)
-        .subscribe(()=> this.message = "Customer Deleted Successfully!");
+      .subscribe(()=> this.message = "Customer Deleted Successfully!");
+    //this.router.navigate(['/']);
   }
 
   goBack(): void {
