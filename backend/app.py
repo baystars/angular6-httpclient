@@ -134,11 +134,8 @@ class CustomerDetailView(MethodView):
 
 app.add_url_rule('/customers', methods=['GET', 'POST'],
                  view_func=CustomerListView.as_view('customer_list'))
-customer_detail_view = CustomerDetailView
-app.add_url_rule('/customers/<int:oid>', methods=['GET', 'PUT'],
-                 view_func=customer_detail_view.as_view('customer_detail'))
-app.add_url_rule('/customers/delete/<int:oid>', methods=['DELETE'],
-                 view_func=customer_detail_view.as_view('customer_delete'))
+app.add_url_rule('/customers/<int:oid>', methods=['GET', 'PUT', 'DELETE'],
+                 view_func=CustomerDetailView.as_view('customer_detail'))
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)
