@@ -35,6 +35,11 @@ for row in data['customers']:
 
 """
 
+def obj2dict(obj):
+    data = copy.copy(obj.__dict__)
+    del data['_sa_instance_state']
+    return data
+
 class Customer(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     firstname = db.Column(db.String(20))
@@ -67,11 +72,7 @@ class Customer(db.Model):
 
 class CustomerListView(MethodView):
     def get(self):
-        object_list = []
-        for customer in Customer.get_all():
-            obj = copy.copy(customer.__dict__)
-            del obj['_sa_instance_state']
-            object_list.append(obj)
+        object_list = [obj2dict(x) for x in Customer.get_all()]
         response = jsonify(object_list)
         return response, 200
 
@@ -83,11 +84,8 @@ class CustomerListView(MethodView):
         customer = Customer(**data)
         customer.save()
 
-        response = jsonify({'id': customer.id,
-                            'firstname': customer.firstname,
-                            'lastname': customer.lastname,
-                            'age': customer.age})
-        return response, 201
+        data = obj2dict(customer)
+        return jsonify(data), 201
 
 class CustomerDetailView(MethodView):
     def get_customer(self, oid):
@@ -98,9 +96,8 @@ class CustomerDetailView(MethodView):
 
     def get(self, oid):
         customer = self.get_customer(oid)
-        obj = copy.copy(customer.__dict__)
-        del obj['_sa_instance_state']
-        response = jsonify(obj)
+        data = obj2dict(customer)
+        response = jsonify(data)
         response.status_code = 200
         return response
 
