@@ -1,5 +1,5 @@
 run-backend:
-	cd "$(PWD)/backend" && make serve-network
+	cd "$(PWD)/backend" && make run-flask
 
 run-frontend:
 	cd "$(PWD)/frontend" && make serve-network

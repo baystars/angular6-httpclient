@@ -1,5 +1,6 @@
 BASE_HREF = "/ng/"`basename $(PWD)`"/"
 OUTPUT_PATH = /var/www${BASE_HREF}
+IP=`/sbin/ifconfig | grep 'inet' | head -1 | cut -d ":" -f 2 | cut -d ' ' -f 1`
 
 run: serve-network
 
@@ -10,7 +11,7 @@ serve-open:
 	ng serve --open
 
 serve-network:
-	ng serve --host 192.168.1.1 --port 4200 --live-reload true
+	ng serve --host $(IP) --port 4200 --live-reload true
 
 build-prod:
 	ng build --prod --output-path=${OUTPUT_PATH} --base-href=${BASE_HREF}

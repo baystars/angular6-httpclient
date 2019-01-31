@@ -1,4 +1,4 @@
-all: serve-network
+all: run-flask
 
 serve:
 	json-server data/data.json
